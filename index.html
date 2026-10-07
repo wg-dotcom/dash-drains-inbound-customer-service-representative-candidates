@@ -402,9 +402,7 @@ html{scroll-behavior:smooth}*{box-sizing:border-box}body{overflow-x:clip}.hero{p
 
         <div class="card-body">
 
-          <div class="card-narrative">
-            Peris has been taking inbound calls and turning them into booked appointments since 2011. At a BPO, they managed high-volume leads, tracked every interaction in Zendesk and HubSpot, and followed up until the booking closed. That's the exact loop Dash Drains needs: answer the call, explain the service, schedule the job. Fifteen years of that muscle.
-          </div>
+          <div class="card-narrative">Peris has been taking inbound calls and turning them into booked appointments since 2011. At a BPO, they managed high-volume leads, tracked every interaction in Zendesk and HubSpot, and followed up until the booking closed. That's the exact loop Dash Drains needs: answer the call, explain the service, schedule the job. Fifteen years of that muscle.</div>
 
 
           <div class="card-section-title">Experience Highlights</div>
@@ -527,9 +525,7 @@ html{scroll-behavior:smooth}*{box-sizing:border-box}body{overflow-x:clip}.hero{p
 
         <div class="card-body">
 
-          <div class="card-narrative">
-            Joseph spent three years scheduling home, termite, and HVAC inspections, coordinating between clients, realtors, and inspectors daily. That's the same loop Dash Drains runs: someone calls with an urgent problem, you book the job, you keep everyone updated. They've handled 100–200 inbound calls a day and know how to move fast without dropping details. Eight years of that.
-          </div>
+          <div class="card-narrative">Joseph spent three years scheduling home, termite, and HVAC inspections, coordinating between clients, realtors, and inspectors daily. That's the same loop Dash Drains runs: someone calls with an urgent problem, you book the job, you keep everyone updated. They've handled 100–200 inbound calls a day and know how to move fast without dropping details. Eight years of that.</div>
 
 
           <div class="card-section-title">Experience Highlights</div>
@@ -652,9 +648,7 @@ html{scroll-behavior:smooth}*{box-sizing:border-box}body{overflow-x:clip}.hero{p
 
         <div class="card-body">
 
-          <div class="card-narrative">
-            David has been on inbound calls for a decade. They've handled billing disputes, de-escalated upset customers, and scheduled service appointments, all in U.S.-facing roles. Their QA scores sit between 90 and 95% consistently. They also spent four years on the other side of the headset, coaching agents on exactly the soft skills Dash Drains needs answered on every call.
-          </div>
+          <div class="card-narrative">David has been on inbound calls for a decade. They've handled billing disputes, de-escalated upset customers, and scheduled service appointments, all in U.S.-facing roles. Their QA scores sit between 90 and 95% consistently. They also spent four years on the other side of the headset, coaching agents on exactly the soft skills Dash Drains needs answered on every call.</div>
 
 
           <div class="card-section-title">Experience Highlights</div>
@@ -775,7 +769,7 @@ html{scroll-behavior:smooth}*{box-sizing:border-box}body{overflow-x:clip}.hero{p
           </div>
         </div>
 
-        <div class="card-body">
+        <div class="card-body"><div class="card-narrative">Osvaldo has worked as Customer Service Representative. Handled 50+ inbound warranty claims daily, maintaining a 98% CSAT score through consistent empathy-driven service and accurate resolution.</div>
 
 
 
@@ -881,9 +875,7 @@ html{scroll-behavior:smooth}*{box-sizing:border-box}body{overflow-x:clip}.hero{p
 
         <div class="card-body">
 
-          <div class="card-narrative">
-            Jessica has done this job, specifically for plumbing and HVAC companies. They took inbound calls, booked the appointments, dispatched the techs, and sold membership plans, all inside ServiceTitan. They've also covered holiday shifts alone, which means they can hold the line when it's busy and no one's around to help. Seven years of home services customer support, and the tools already match.
-          </div>
+          <div class="card-narrative">Jessica has done this job, specifically for plumbing and HVAC companies. They took inbound calls, booked the appointments, dispatched the techs, and sold membership plans, all inside ServiceTitan. They've also covered holiday shifts alone, which means they can hold the line when it's busy and no one's around to help. Seven years of home services customer support, and the tools already match.</div>
 
 
           <div class="card-section-title">Experience Highlights</div>
@@ -1112,7 +1104,7 @@ function select(n){
  panels.forEach(p=>{const active=p===panel;p.hidden=!active;p.classList.toggle('hidden',!active);p.style.display=active?'':'none';if(p.hasAttribute('data-builder-batch'))p.dataset.builderBatchHidden=String(!active)});
  buttons.forEach(b=>{const active=Number(b.dataset.batch)===Number(n);b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});
  const count=panel.querySelectorAll('.card-name').length;const heading=document.querySelector('.candidates-header h2');if(heading)heading.textContent=count+' candidates to review';
- document.querySelectorAll('.hero-meta-item').forEach(item=>{const label=item.querySelector('.hero-meta-label')?.textContent.trim();if(/^(Candidates|Profiles|In this batch)$/i.test(label||'')){const value=item.querySelector('.hero-meta-value');if(value)value.textContent=count+' candidates'}});
+ document.querySelectorAll('.hero-meta-item').forEach(item=>{const label=item.querySelector('.hero-meta-label')?.textContent.trim();const value=item.querySelector('.hero-meta-value');if(/^(Candidates|Profiles|In this batch)$/i.test(label||'')&&value)value.textContent=count+' candidates';if(/^Batch$/i.test(label||'')&&value){const button=buttons.find(b=>Number(b.dataset.batch)===Number(n));const date=button?.querySelector('.batch-date')?.textContent.trim()||panel.dataset.batchDate;value.textContent='Batch '+n+(date?' · '+date:'')}});
 }
 window.showBatch=select;window.switchBatch=function(id){select(Number(String(id).replace(/\D/g,'')))};
 buttons.forEach(b=>{b.removeAttribute('onclick');b.addEventListener('click',e=>{e.preventDefault();e.stopImmediatePropagation();select(b.dataset.batch);history.replaceState(null,'','#batch-'+b.dataset.batch)},true)});
